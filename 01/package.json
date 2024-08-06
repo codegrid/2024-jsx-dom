@@ -1,0 +1,13 @@
+{
+  "name": "01",
+  "version": "1.0.0",
+  "scripts": {
+    "prod": "node ./build/prod.mjs",
+    "dev": "node ./build/dev.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.0",
+    "esbuild-css-modules-plugin": "^3.1.2",
+    "typescript": "^5.5.4"
+  }
+}

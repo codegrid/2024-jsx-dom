@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Demo</title>
+    <style>
+      .counter-widget {
+        margin: 30px;
+        padding: 20px;
+        text-align: center;
+        border: solid 1px silver;
+      }
+      .counter-widget button {
+        background-color: #007bff;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        margin: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 30px;
+        min-width: 100px;
+      }
+      .counter-widget button:focus {
+        outline: thick double #32a1ce;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="counterWidget"></div>
+    <script src="scripts/dom.js"></script>
+  </body>
+</html>

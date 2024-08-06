@@ -1,0 +1,1 @@
+"use strict";(()=>{var c=()=>{let t=0,e=document.createElement("button");e.textContent=t.toString(),e.addEventListener("click",o=>{t++,o.target.textContent=t.toString()});let n=document.createElement("div");return n.classList.add("counter-widget"),n.appendChild(e),n},d=c();document.querySelector("#counterWidget")?.appendChild(d);})();
