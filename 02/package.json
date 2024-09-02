@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "prod": "node ./build/prod.mjs",
+    "dev": "node ./build/dev.mjs",
+    "type-check": "tsc -noEmit"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.0",
+    "esbuild-css-modules-plugin": "^3.1.2",
+    "typescript": "^5.5.4"
+  }
+}
