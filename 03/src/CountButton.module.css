@@ -1,0 +1,14 @@
+.CountButton {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 30px;
+  min-width: 100px;
+}
+.CountButton:focus {
+  outline: thick double #32a1ce;
+}

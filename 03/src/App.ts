@@ -7,7 +7,7 @@ export const App = () => {
   appDom.classList.add(styles.App);
   appDom.appendChild(
     CountButton({
-      count,
+      count: 0,
       onClick: (event: Event) => {
         count++;
         (event.target as HTMLButtonElement).textContent = count.toString();
