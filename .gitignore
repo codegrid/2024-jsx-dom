@@ -2,3 +2,4 @@ node_modules
 */dev/dist
 */public/scripts/*.css
 
+*.module.css.d.ts
