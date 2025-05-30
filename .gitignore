@@ -1,5 +1,10 @@
+.DS_Store
+
 node_modules
 */dev/dist
 */public/scripts/*.css
 
 *.module.css.d.ts
+
+dist
+!05/jsx_react__eventHandler/dist
