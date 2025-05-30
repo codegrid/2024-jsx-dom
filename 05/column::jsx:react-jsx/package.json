@@ -1,0 +1,16 @@
+{
+  "name": "01",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node ./build.mjs",
+    "tsc": "node_modules/.bin/tsc"
+  },
+  "type": "module",
+  "imports": {
+    "#h/jsx-runtime": "./src/h/jsx-runtime.ts"
+  },
+  "devDependencies": {
+    "esbuild": "^0.23.0",
+    "typescript": "^5.5.4"
+  }
+}

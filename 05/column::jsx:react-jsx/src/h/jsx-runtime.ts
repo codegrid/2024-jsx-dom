@@ -1,0 +1,21 @@
+export const h = (
+  element: any,
+  { children, ...attributes }: Record<string, any>
+) => {
+  const el = document.createElement(element);
+  for (const attrName in attributes) {
+    const attrValue = attributes[attrName];
+    if (/^on[A-Z][a-z]/.test(attrName) && typeof attrValue === 'function') {
+      const eventName = attrName.slice(2).toLowerCase();
+      el.addEventListener(eventName, attrValue);
+    } else {
+      el.setAttribute(attrName, attrValue);
+    }
+  }
+  if (Array.isArray(children)) el.append(...children);
+  else el.append(children);
+
+  return el;
+};
+export { h as jsx };
+export { h as jsxs };
