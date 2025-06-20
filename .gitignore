@@ -7,4 +7,4 @@ node_modules
 *.module.css.d.ts
 
 dist
-!05/jsx_react__eventHandler/dist
+!06/jsx_react__eventHandler/dist
