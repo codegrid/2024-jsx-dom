@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .AppDialog {
+        /* 以下CSS変数はJSから更新される可能性あり */
+        --_max-width: 1100px;
+        --_padding-inline: 50px;
+      }
+      ._Content {
+        padding-inline: var(--_padding-inline);
+        max-width: var(--_max-width);
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="module" src="dist/App.js"></script>
+  </body>
+</html>
