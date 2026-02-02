@@ -1,0 +1,21 @@
+.App {
+  padding: 20px;
+}
+
+._Input {
+  font-size: 16px;
+  padding: 10px 14px;
+  width: 320px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+._Output {
+  margin-top: 16px;
+  font-size: 16px;
+  padding: 12px 16px;
+  background: #f8f9fa;
+  border-left: 3px solid #4a90e2;
+  border-radius: 4px;
+  color: #333;
+}

@@ -1,0 +1,28 @@
+.App {
+  padding: 20px;
+}
+
+._Count {
+  font-size: 18px;
+  margin-bottom: 16px;
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border-left: 3px solid #4a90e2;
+  border-radius: 4px;
+  color: #333;
+}
+
+._Button {
+  font-size: 20px;
+  padding: 12px 24px;
+  cursor: pointer;
+  border: 2px solid #4a90e2;
+  background: #fff;
+  border-radius: 8px;
+  color: #4a90e2;
+}
+
+._Button:active {
+  transform: scale(0.96);
+  background: #e8f2fc;
+}

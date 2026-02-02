@@ -1,0 +1,20 @@
+/* esbuild-css-modules-plugin-ns-css:src/App.module.css */
+.App-module__gPMrEW__App {
+  padding: 20px;
+}
+.App-module__gPMrEW___Input {
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  width: 320px;
+  padding: 10px 14px;
+  font-size: 16px;
+}
+.App-module__gPMrEW___Output {
+  color: #333;
+  background: #f8f9fa;
+  border-left: 3px solid #4a90e2;
+  border-radius: 4px;
+  margin-top: 16px;
+  padding: 12px 16px;
+  font-size: 16px;
+}
