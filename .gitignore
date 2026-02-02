@@ -8,3 +8,4 @@ node_modules
 
 dist
 !06/jsx_react__eventHandler/dist
+!10/*/public/dist
