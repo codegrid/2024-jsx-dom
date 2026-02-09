@@ -1,4 +1,4 @@
-import { getFocusHandler } from './getFocusHandler.js';
+import { setFocus } from './setFocus.js';
 
 export const domReplacer = (domFactory: () => HTMLElement) => {
   let dom = domFactory();
@@ -16,9 +16,8 @@ export const domReplacer = (domFactory: () => HTMLElement) => {
     const newDom = replaceDom();
 
     // 新しいDOM内に記録したidを持つ要素があればフォーカスする
-    const focus = getFocusHandler(newDom);
-    if (id && focus) {
-      focus(`#${id}`, selectionStart);
+    if (id) {
+      setFocus(newDom, `#${id}`, selectionStart);
     }
   }
 

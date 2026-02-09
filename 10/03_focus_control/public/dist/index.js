@@ -20,33 +20,30 @@ globalThis['__css-content-808794906c4839b82ed240e38daf1f1c__']=".App-module__gPM
     return el;
   };
 
-  // src/getFocusHandler.ts
-  var getFocusHandler = (node) => {
-    return (selector, cursorPosition = 0) => {
-      const target = node.querySelector(selector) || node.parentElement?.querySelector(selector);
-      if (!target) return;
-      target?.focus();
-      if (cursorPosition) {
-        target?.setSelectionRange(cursorPosition, cursorPosition);
-      }
-    };
+  // src/setFocus.ts
+  var setFocus = (node, selector, cursorPosition = 0) => {
+    const target = node.querySelector(selector) || node.parentElement?.querySelector(selector);
+    if (!target) return;
+    target?.focus();
+    if (cursorPosition) {
+      target?.setSelectionRange(cursorPosition, cursorPosition);
+    }
   };
 
   // src/domReplacer.ts
-  var domReplacer = (domFactory) => {
-    let dom = domFactory();
+  var domReplacer = (component) => {
+    let dom = component();
     function replaceDom() {
-      const newDom = domFactory();
+      const newDom = component();
       dom.replaceWith(newDom);
       return dom = newDom;
     }
     function render() {
       const id = document.activeElement?.id;
-      const selectionStart = document.activeElement?.selectionStart;
+      const selectionStart = document.activeElement?.selectionStart || 0;
       const newDom = replaceDom();
-      const focus = getFocusHandler(newDom);
-      if (id && focus) {
-        focus(`#${id}`, selectionStart);
+      if (id) {
+        setFocus(newDom, `#${id}`, selectionStart);
       }
     }
     return {
@@ -98,22 +95,22 @@ globalThis['__css-content-808794906c4839b82ed240e38daf1f1c__']=".App-module__gPM
 
   // src/App.tsx
   var App = () => {
-    let name = "";
+    let inputValue = "";
     const appReplacer = domReplacer(() => {
       const inputDom = /* @__PURE__ */ h(
         "input",
         {
-          id: "name-input",
+          id: "value-input",
           class: App_default._Input,
-          value: name,
+          value: inputValue,
           onKeyup: (e) => {
             if (e.isComposing) return;
-            name = inputDom.value;
+            inputValue = inputDom.value;
             appReplacer.render();
           }
         }
       );
-      return /* @__PURE__ */ h("div", { class: App_default.App }, inputDom, /* @__PURE__ */ h("p", { class: App_default._Output }, "\u5165\u529B\u5024: ", name));
+      return /* @__PURE__ */ h("div", { class: App_default.App }, inputDom, /* @__PURE__ */ h("p", { class: App_default._Output }, "\u5165\u529B\u5024: ", inputValue));
     });
     return appReplacer.dom;
   };

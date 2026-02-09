@@ -1,10 +1,10 @@
-import { getFocusHandler } from './getFocusHandler.js';
+import { setFocus } from './setFocus.js';
 
-export const domReplacer = (domFactory: () => HTMLElement) => {
-  let dom = domFactory();
+export const domReplacer = (component: () => HTMLElement) => {
+  let dom = component();
 
   function replaceDom() {
-    const newDom = domFactory();
+    const newDom = component();
     dom.replaceWith(newDom);
     return (dom = newDom);
   }
@@ -12,13 +12,12 @@ export const domReplacer = (domFactory: () => HTMLElement) => {
   function render() {
     // DOMを書き換える前にフォーカスしていた要素のidとselectionStartを記録
     const id = document.activeElement?.id;
-    const selectionStart = (document.activeElement as any)?.selectionStart;
+    const selectionStart = (document.activeElement as any)?.selectionStart || 0;
     const newDom = replaceDom();
 
     // 新しいDOM内に記録したidを持つ要素があればフォーカスする
-    const focus = getFocusHandler(newDom);
-    if (id && focus) {
-      focus(`#${id}`, selectionStart);
+    if (id) {
+      setFocus(newDom, `#${id}`, selectionStart);
     }
   }
 

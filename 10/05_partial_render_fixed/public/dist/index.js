@@ -1,4 +1,4 @@
-globalThis['__css-content-ff58f6977723202dd0cff6936cddefa0__']=".App-module__gPMrEW__App{padding:20px}.App-module__gPMrEW___Input{border:2px solid #e0e0e0;border-radius:8px;width:320px;padding:10px 14px;font-size:16px}.App-module__gPMrEW___Output{color:#333;background:#f8f9fa;border-left:3px solid #4a90e2;border-radius:4px;margin-top:16px;padding:12px 16px;font-size:16px}\n";globalThis['__css-digest-ff58f6977723202dd0cff6936cddefa0__']="ff58f6977723202dd0cff6936cddefa0";
+globalThis['__css-content-ff58f6977723202dd0cff6936cddefa0__']=".App-module__gPMrEW__App{padding:20px}.App-module__gPMrEW___Input{border:2px solid #e0e0e0;border-radius:8px;width:320px;padding:10px 14px;font-size:16px;transition:none}.App-module__gPMrEW___Input:focus{border-color:#4a90e2;outline:none;animation:.3s ease-in-out App-module__gPMrEW__focusGlow}@keyframes App-module__gPMrEW__focusGlow{0%{transform:scale(1);box-shadow:0 0 #4a90e266}50%{transform:scale(1.02);box-shadow:0 0 0 4px #4a90e233}to{transform:scale(1);box-shadow:0 0 #4a90e200}}.App-module__gPMrEW___Output{color:#333;background:#f8f9fa;border-left:3px solid #4a90e2;border-radius:4px;margin-top:16px;padding:12px 16px;font-size:16px}\n";globalThis['__css-digest-ff58f6977723202dd0cff6936cddefa0__']="ff58f6977723202dd0cff6936cddefa0";
 "use strict";
 (() => {
   // src/h.ts
@@ -20,16 +20,14 @@ globalThis['__css-content-ff58f6977723202dd0cff6936cddefa0__']=".App-module__gPM
     return el;
   };
 
-  // src/getFocusHandler.ts
-  var getFocusHandler = (node) => {
-    return (selector, cursorPosition = 0) => {
-      const target = node.querySelector(selector) || node.parentElement?.querySelector(selector);
-      if (!target) return;
-      target?.focus();
-      if (cursorPosition) {
-        target?.setSelectionRange(cursorPosition, cursorPosition);
-      }
-    };
+  // src/setFocus.ts
+  var setFocus = (node, selector, cursorPosition = 0) => {
+    const target = node.querySelector(selector) || node.parentElement?.querySelector(selector);
+    if (!target) return;
+    target?.focus();
+    if (cursorPosition) {
+      target?.setSelectionRange(cursorPosition, cursorPosition);
+    }
   };
 
   // src/domReplacer.ts
@@ -44,9 +42,8 @@ globalThis['__css-content-ff58f6977723202dd0cff6936cddefa0__']=".App-module__gPM
       const id = document.activeElement?.id;
       const selectionStart = document.activeElement?.selectionStart;
       const newDom = replaceDom();
-      const focus = getFocusHandler(newDom);
-      if (id && focus) {
-        focus(`#${id}`, selectionStart);
+      if (id) {
+        setFocus(newDom, `#${id}`, selectionStart);
       }
     }
     return {
@@ -86,6 +83,7 @@ globalThis['__css-content-ff58f6977723202dd0cff6936cddefa0__']=".App-module__gPM
     "app": "App-module__gPMrEW__App",
     "input": "App-module__gPMrEW___Input",
     "output": "App-module__gPMrEW___Output",
+    "focusGlow": "App-module__gPMrEW__focusGlow",
     "App": "App-module__gPMrEW__App",
     "_Input": "App-module__gPMrEW___Input",
     "_Output": "App-module__gPMrEW___Output"
@@ -98,21 +96,21 @@ globalThis['__css-content-ff58f6977723202dd0cff6936cddefa0__']=".App-module__gPM
 
   // src/App.tsx
   var App = () => {
-    let name = "";
+    let inputValue = "";
     const inputDom = /* @__PURE__ */ h(
       "input",
       {
         class: App_default._Input,
-        value: name,
+        value: inputValue,
         onKeyup: (e) => {
           if (e.isComposing) return;
-          name = inputDom.value;
+          inputValue = inputDom.value;
           valueDisplayReplacer.render();
         }
       }
     );
     const valueDisplayReplacer = domReplacer(
-      () => /* @__PURE__ */ h("p", { class: App_default._Output }, "\u5165\u529B\u5024: ", name)
+      () => /* @__PURE__ */ h("p", { class: App_default._Output }, "\u5165\u529B\u5024: ", inputValue)
     );
     return /* @__PURE__ */ h("div", { class: App_default.App }, inputDom, valueDisplayReplacer.dom);
   };

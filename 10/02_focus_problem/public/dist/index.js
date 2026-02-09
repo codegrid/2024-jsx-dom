@@ -21,10 +21,10 @@ globalThis['__css-content-779822a6caf43a6ddaf352bc09435443__']=".App-module__gPM
   };
 
   // src/domReplacer.ts
-  var domReplacer = (domFactory) => {
-    let dom = domFactory();
+  var domReplacer = (component) => {
+    let dom = component();
     function replaceDom() {
-      const newDom = domFactory();
+      const newDom = component();
       dom.replaceWith(newDom);
       return dom = newDom;
     }
@@ -33,7 +33,9 @@ globalThis['__css-content-779822a6caf43a6ddaf352bc09435443__']=".App-module__gPM
     }
     return {
       render,
+      // 再レンダリング用の関数（DOMの置換を行う）
       dom
+      // 初回レンダリングで生成したDOM
     };
   };
 
@@ -80,21 +82,21 @@ globalThis['__css-content-779822a6caf43a6ddaf352bc09435443__']=".App-module__gPM
 
   // src/App.tsx
   var App = () => {
-    let name = "";
+    let inputValue = "";
     const appReplacer = domReplacer(() => {
       const inputDom = /* @__PURE__ */ h(
         "input",
         {
           class: App_default._Input,
-          value: name,
+          value: inputValue,
           onKeyup: (e) => {
             if (e.isComposing) return;
-            name = inputDom.value;
+            inputValue = inputDom.value;
             appReplacer.render();
           }
         }
       );
-      return /* @__PURE__ */ h("div", { class: App_default.App }, inputDom, /* @__PURE__ */ h("p", { class: App_default._Output }, "\u5165\u529B\u5024: ", name));
+      return /* @__PURE__ */ h("div", { class: App_default.App }, inputDom, /* @__PURE__ */ h("p", { class: App_default._Output }, "\u5165\u529B\u5024: ", inputValue));
     });
     return appReplacer.dom;
   };

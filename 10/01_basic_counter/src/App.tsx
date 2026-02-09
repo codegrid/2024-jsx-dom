@@ -9,13 +9,13 @@ export const App = () => {
     <div class={styles.App}>
       <p class={styles._Count}>カウント: {count}</p>
       <button class={styles._Button} onClick={() => {
-        count++;
-        appReplacer.render();
+        count++; // 状態データの更新
+        appReplacer.render(); // ★再レンダリングを実行
       }}>
         +1
       </button>
     </div>
   ));
 
-  return appReplacer.dom;
+  return appReplacer.dom; // ★初回レンダリングのDOMを返す
 };

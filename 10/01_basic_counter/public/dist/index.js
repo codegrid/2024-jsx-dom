@@ -21,10 +21,10 @@ globalThis['__css-content-ee99c97624aa3bd0df0ff34e8da2ef24__']=".App-module__gPM
   };
 
   // src/domReplacer.ts
-  var domReplacer = (domFactory) => {
-    let dom = domFactory();
+  var domReplacer = (component) => {
+    let dom = component();
     function replaceDom() {
-      const newDom = domFactory();
+      const newDom = component();
       dom.replaceWith(newDom);
       return dom = newDom;
     }
@@ -33,7 +33,9 @@ globalThis['__css-content-ee99c97624aa3bd0df0ff34e8da2ef24__']=".App-module__gPM
     }
     return {
       render,
+      // 再レンダリング用の関数（DOMの置換を行う）
       dom
+      // 初回レンダリングで生成したDOM
     };
   };
 
