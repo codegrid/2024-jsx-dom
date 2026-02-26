@@ -1,0 +1,31 @@
+.IconButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #4a90e2;
+  background: #fff;
+  border: 2px solid #4a90e2;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.IconButton:hover {
+  background: #f0f7ff;
+}
+
+.IconButton:active {
+  transform: scale(0.96);
+  background: #e8f2fc;
+}
+
+._Icon {
+  display: block;
+}
+
+._Label {
+  display: block;
+}

@@ -1,0 +1,9 @@
+.ValueDisplay {
+  font-size: 18px;
+  padding: 16px 20px;
+  background: #f8f9fa;
+  border-left: 3px solid #4a90e2;
+  border-radius: 4px;
+  color: #333;
+  margin: 0;
+}

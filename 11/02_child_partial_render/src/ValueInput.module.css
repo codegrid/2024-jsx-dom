@@ -1,0 +1,15 @@
+.ValueInput {
+  padding: 12px;
+  font-size: 16px;
+  border: 2px solid #4a90e2;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.ValueInput:focus {
+  outline: none;
+  border-color: #2d70c4;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}

@@ -1,0 +1,37 @@
+.App {
+  padding: 20px;
+  font-family: sans-serif;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+._Title {
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: #333;
+  text-align: center;
+}
+
+._Counter {
+  margin-bottom: 24px;
+}
+
+._Count {
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0 0 8px 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-left: 4px solid #4a90e2;
+  border-radius: 4px;
+  color: #333;
+}
+
+._Status {
+  font-size: 16px;
+  margin: 0;
+  padding: 12px 20px;
+  background: #e8f4fd;
+  border-radius: 4px;
+  color: #2d70c4;
+}
